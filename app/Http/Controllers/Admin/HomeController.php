@@ -439,6 +439,8 @@ class HomeController
 
         $chart12 = new LaravelChart($settings12);
 
-        return view('admin.home', compact('chart12', 'settings1', 'settings10', 'settings11', 'settings2', 'settings3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'settings9'));
+        $blockCount = \App\Models\GeneralStockRecord::count();
+
+        return view('admin.home', compact('chart12', 'settings1', 'settings10', 'settings11', 'settings2', 'settings3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'settings9', 'blockCount'));
     }
 }

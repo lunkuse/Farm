@@ -240,7 +240,7 @@
             </div>
         </div>
     </div>
-
+ppppppp{{$blockCount}}
     {{-- Latest Entries --}}
     <div class="{{ $settings10['column_class'] }} px-4">
         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 shadow-lg">
