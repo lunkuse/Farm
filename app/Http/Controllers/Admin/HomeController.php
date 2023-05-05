@@ -495,19 +495,19 @@ class HomeController
         $shelters = Shelter::all(['id', 'name']);
 
         foreach ($shelters as $shelter) {
-            // $new_shelter = (object)[];
-            // $stock_count = GeneralStockRecord::where('shelter_id', $shelter->id)->count();
-            // $new_shelter->count = $stock_count;
-            // $new_shelter->shelter = $shelter;
-            // array_push($final_stock, $new_shelter);
-            $new_shelter = [];
+            $new_shelter = (object)[];
             $stock_count = GeneralStockRecord::where('shelter_id', $shelter->id)->count();
-            $new_shelter['count'] = $stock_count;
-            $new_shelter['shelter'] = $shelter;
+            $new_shelter->count = $stock_count;
+            $new_shelter->shelter = $shelter;
             array_push($final_stock, $new_shelter);
+            // $new_shelter = [];
+            // $stock_count = GeneralStockRecord::where('shelter_id', $shelter->id)->count();
+            // $new_shelter['count'] = $stock_count;
+            // $new_shelter['shelter'] = $shelter;
+            // array_push($final_stock, $new_shelter);
         }
-        // $stock_with_shelter = json_encode($final_stock);
-        $stock_with_shelter = $final_stock;
+        $stock_with_shelter = json_encode($final_stock);
+        // $stock_with_shelter = $final_stock;
         // dd($stock_with_shelter );
 
 

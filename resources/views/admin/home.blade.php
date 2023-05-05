@@ -12,7 +12,7 @@
 // dd($stock_with_shelter);
 ?>
 
-
+{{$stock_with_shelter}}
 <table class="table table-index w-full">
                 <thead>
                     <tr>
@@ -20,7 +20,7 @@
                         </th>
                         
                         <th>
-                         Branch
+                         Shelter
                         </th>
                         <th>
                          Total
