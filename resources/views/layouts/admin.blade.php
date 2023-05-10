@@ -23,8 +23,8 @@
 
         <div class="relative md:ml-64 bg-blueGray-50 min-h-screen">
             <x-nav />
-
-            <div class="relative bg-indigo-100 md:pt-32 pb-32 pt-12">
+<!--counter color bg-indigo-100 -->
+            <div class="relative  md:pt-32 pb-32 pt-12">
                 <div class="px-4 md:px-10 mx-auto w-full">&nbsp;</div>
             </div>
 

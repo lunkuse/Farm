@@ -13,9 +13,9 @@ trait Auditable
             self::audit('audit:created', $model);
         });
 
-        static::updated(function (Model $model) {
-            self::audit('audit:updated', $model, $model->getChanges());
-        });
+        // static::updated(function (Model $model) {
+        //     self::audit('audit:updated', $model, $model->getChanges());
+        // });
 
         static::deleted(function (Model $model) {
             self::audit('audit:deleted', $model);

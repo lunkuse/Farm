@@ -6,6 +6,8 @@ use App\Models\GeneralStockRecord;
 use App\Models\ManageSaleRecord;
 use App\Models\SalePurpose;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+
 
 class Create extends Component
 {
@@ -36,6 +38,15 @@ class Create extends Component
         $this->manageSaleRecord->animalTag()->sync($this->animal_tag);
         $this->manageSaleRecord->salePurpose()->sync($this->sale_purpose);
 
+        $stock_records = DB::table('general_stock_record_manage_sale_record')->get();
+
+        foreach($stock_records as $record){
+           DB::table('general_stock_records')->where('id',$record->general_stock_record_id)->update([
+                'availability'=> 'not available'
+            ]);
+    
+        }
+  
         return redirect()->route('admin.manage-sale-records.index');
     }
 
