@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Shelter;
+use App\Models\GeneralStockRecord;
+
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class HomeController
@@ -17,7 +20,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full lg:w-6/12 xl:w-3/12',
             'entries_number'        => '5',
             'translation_key'       => 'generalStockRecord',
@@ -27,16 +30,22 @@ class HomeController
         if (class_exists($settings1['model'])) {
             $settings1['total_number'] = $settings1['model']::when(isset($settings1['filter_field']), function ($query) use ($settings1) {
                 if (isset($settings1['filter_days'])) {
-                    return $query->where($settings1['filter_field'], '>=',
-                        now()->subDays($settings1['filter_days'])->format('Y-m-d'));
+                    return $query->where(
+                        $settings1['filter_field'],
+                        '>=',
+                        now()->subDays($settings1['filter_days'])->format('Y-m-d')
+                    );
                 } elseif (isset($settings1['filter_period'])) {
                     switch ($settings1['filter_period']) {
-                        case 'week': $start = date('Y-m-d', strtotime('last Monday'));
-                        break;
-                        case 'month': $start = date('Y-m') . '-01';
-                        break;
-                        case 'year': $start = date('Y') . '-01-01';
-                        break;
+                        case 'week':
+                            $start = date('Y-m-d', strtotime('last Monday'));
+                            break;
+                        case 'month':
+                            $start = date('Y-m') . '-01';
+                            break;
+                        case 'year':
+                            $start = date('Y') . '-01-01';
+                            break;
                     }
                     if (isset($start)) {
                         return $query->where($settings1['filter_field'], '>=', $start);
@@ -55,7 +64,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full lg:w-6/12 xl:w-3/12',
             'entries_number'        => '5',
             'translation_key'       => 'manageHealthRecord',
@@ -65,16 +74,22 @@ class HomeController
         if (class_exists($settings2['model'])) {
             $settings2['total_number'] = $settings2['model']::when(isset($settings2['filter_field']), function ($query) use ($settings2) {
                 if (isset($settings2['filter_days'])) {
-                    return $query->where($settings2['filter_field'], '>=',
-                        now()->subDays($settings2['filter_days'])->format('Y-m-d'));
+                    return $query->where(
+                        $settings2['filter_field'],
+                        '>=',
+                        now()->subDays($settings2['filter_days'])->format('Y-m-d')
+                    );
                 } elseif (isset($settings2['filter_period'])) {
                     switch ($settings2['filter_period']) {
-                        case 'week': $start = date('Y-m-d', strtotime('last Monday'));
-                        break;
-                        case 'month': $start = date('Y-m') . '-01';
-                        break;
-                        case 'year': $start = date('Y') . '-01-01';
-                        break;
+                        case 'week':
+                            $start = date('Y-m-d', strtotime('last Monday'));
+                            break;
+                        case 'month':
+                            $start = date('Y-m') . '-01';
+                            break;
+                        case 'year':
+                            $start = date('Y') . '-01-01';
+                            break;
                     }
                     if (isset($start)) {
                         return $query->where($settings2['filter_field'], '>=', $start);
@@ -93,7 +108,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full lg:w-6/12 xl:w-3/12',
             'entries_number'        => '5',
             'translation_key'       => 'manageVaccinationRecord',
@@ -103,16 +118,22 @@ class HomeController
         if (class_exists($settings3['model'])) {
             $settings3['total_number'] = $settings3['model']::when(isset($settings3['filter_field']), function ($query) use ($settings3) {
                 if (isset($settings3['filter_days'])) {
-                    return $query->where($settings3['filter_field'], '>=',
-                        now()->subDays($settings3['filter_days'])->format('Y-m-d'));
+                    return $query->where(
+                        $settings3['filter_field'],
+                        '>=',
+                        now()->subDays($settings3['filter_days'])->format('Y-m-d')
+                    );
                 } elseif (isset($settings3['filter_period'])) {
                     switch ($settings3['filter_period']) {
-                        case 'week': $start = date('Y-m-d', strtotime('last Monday'));
-                        break;
-                        case 'month': $start = date('Y-m') . '-01';
-                        break;
-                        case 'year': $start = date('Y') . '-01-01';
-                        break;
+                        case 'week':
+                            $start = date('Y-m-d', strtotime('last Monday'));
+                            break;
+                        case 'month':
+                            $start = date('Y-m') . '-01';
+                            break;
+                        case 'year':
+                            $start = date('Y') . '-01-01';
+                            break;
                     }
                     if (isset($start)) {
                         return $query->where($settings3['filter_field'], '>=', $start);
@@ -131,7 +152,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full lg:w-6/12 xl:w-3/12',
             'entries_number'        => '5',
             'translation_key'       => 'managebreedingRecord',
@@ -141,16 +162,22 @@ class HomeController
         if (class_exists($settings4['model'])) {
             $settings4['total_number'] = $settings4['model']::when(isset($settings4['filter_field']), function ($query) use ($settings4) {
                 if (isset($settings4['filter_days'])) {
-                    return $query->where($settings4['filter_field'], '>=',
-                        now()->subDays($settings4['filter_days'])->format('Y-m-d'));
+                    return $query->where(
+                        $settings4['filter_field'],
+                        '>=',
+                        now()->subDays($settings4['filter_days'])->format('Y-m-d')
+                    );
                 } elseif (isset($settings4['filter_period'])) {
                     switch ($settings4['filter_period']) {
-                        case 'week': $start = date('Y-m-d', strtotime('last Monday'));
-                        break;
-                        case 'month': $start = date('Y-m') . '-01';
-                        break;
-                        case 'year': $start = date('Y') . '-01-01';
-                        break;
+                        case 'week':
+                            $start = date('Y-m-d', strtotime('last Monday'));
+                            break;
+                        case 'month':
+                            $start = date('Y-m') . '-01';
+                            break;
+                        case 'year':
+                            $start = date('Y') . '-01-01';
+                            break;
                     }
                     if (isset($start)) {
                         return $query->where($settings4['filter_field'], '>=', $start);
@@ -170,7 +197,7 @@ class HomeController
             'aggregate_function'    => 'sum',
             'aggregate_field'       => 'amount',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full lg:w-6/12 xl:w-3/12',
             'entries_number'        => '5',
             'translation_key'       => 'manageSaleRecord',
@@ -180,16 +207,22 @@ class HomeController
         if (class_exists($settings5['model'])) {
             $settings5['total_number'] = $settings5['model']::when(isset($settings5['filter_field']), function ($query) use ($settings5) {
                 if (isset($settings5['filter_days'])) {
-                    return $query->where($settings5['filter_field'], '>=',
-                        now()->subDays($settings5['filter_days'])->format('Y-m-d'));
+                    return $query->where(
+                        $settings5['filter_field'],
+                        '>=',
+                        now()->subDays($settings5['filter_days'])->format('Y-m-d')
+                    );
                 } elseif (isset($settings5['filter_period'])) {
                     switch ($settings5['filter_period']) {
-                        case 'week': $start = date('Y-m-d', strtotime('last Monday'));
-                        break;
-                        case 'month': $start = date('Y-m') . '-01';
-                        break;
-                        case 'year': $start = date('Y') . '-01-01';
-                        break;
+                        case 'week':
+                            $start = date('Y-m-d', strtotime('last Monday'));
+                            break;
+                        case 'month':
+                            $start = date('Y-m') . '-01';
+                            break;
+                        case 'year':
+                            $start = date('Y') . '-01-01';
+                            break;
                     }
                     if (isset($start)) {
                         return $query->where($settings5['filter_field'], '>=', $start);
@@ -209,7 +242,7 @@ class HomeController
             'aggregate_function'    => 'sum',
             'aggregate_field'       => 'amount',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full lg:w-6/12 xl:w-3/12',
             'entries_number'        => '5',
             'translation_key'       => 'manageExpense',
@@ -219,16 +252,22 @@ class HomeController
         if (class_exists($settings6['model'])) {
             $settings6['total_number'] = $settings6['model']::when(isset($settings6['filter_field']), function ($query) use ($settings6) {
                 if (isset($settings6['filter_days'])) {
-                    return $query->where($settings6['filter_field'], '>=',
-                        now()->subDays($settings6['filter_days'])->format('Y-m-d'));
+                    return $query->where(
+                        $settings6['filter_field'],
+                        '>=',
+                        now()->subDays($settings6['filter_days'])->format('Y-m-d')
+                    );
                 } elseif (isset($settings6['filter_period'])) {
                     switch ($settings6['filter_period']) {
-                        case 'week': $start = date('Y-m-d', strtotime('last Monday'));
-                        break;
-                        case 'month': $start = date('Y-m') . '-01';
-                        break;
-                        case 'year': $start = date('Y') . '-01-01';
-                        break;
+                        case 'week':
+                            $start = date('Y-m-d', strtotime('last Monday'));
+                            break;
+                        case 'month':
+                            $start = date('Y-m') . '-01';
+                            break;
+                        case 'year':
+                            $start = date('Y') . '-01-01';
+                            break;
                     }
                     if (isset($start)) {
                         return $query->where($settings6['filter_field'], '>=', $start);
@@ -247,7 +286,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full lg:w-6/12 xl:w-3/12',
             'entries_number'        => '5',
             'translation_key'       => 'orchardRecord',
@@ -257,16 +296,22 @@ class HomeController
         if (class_exists($settings7['model'])) {
             $settings7['total_number'] = $settings7['model']::when(isset($settings7['filter_field']), function ($query) use ($settings7) {
                 if (isset($settings7['filter_days'])) {
-                    return $query->where($settings7['filter_field'], '>=',
-                        now()->subDays($settings7['filter_days'])->format('Y-m-d'));
+                    return $query->where(
+                        $settings7['filter_field'],
+                        '>=',
+                        now()->subDays($settings7['filter_days'])->format('Y-m-d')
+                    );
                 } elseif (isset($settings7['filter_period'])) {
                     switch ($settings7['filter_period']) {
-                        case 'week': $start = date('Y-m-d', strtotime('last Monday'));
-                        break;
-                        case 'month': $start = date('Y-m') . '-01';
-                        break;
-                        case 'year': $start = date('Y') . '-01-01';
-                        break;
+                        case 'week':
+                            $start = date('Y-m-d', strtotime('last Monday'));
+                            break;
+                        case 'month':
+                            $start = date('Y-m') . '-01';
+                            break;
+                        case 'year':
+                            $start = date('Y') . '-01-01';
+                            break;
                     }
                     if (isset($start)) {
                         return $query->where($settings7['filter_field'], '>=', $start);
@@ -285,7 +330,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full lg:w-6/12 xl:w-3/12',
             'entries_number'        => '5',
             'translation_key'       => 'manageEctoParasite',
@@ -295,16 +340,22 @@ class HomeController
         if (class_exists($settings8['model'])) {
             $settings8['total_number'] = $settings8['model']::when(isset($settings8['filter_field']), function ($query) use ($settings8) {
                 if (isset($settings8['filter_days'])) {
-                    return $query->where($settings8['filter_field'], '>=',
-                        now()->subDays($settings8['filter_days'])->format('Y-m-d'));
+                    return $query->where(
+                        $settings8['filter_field'],
+                        '>=',
+                        now()->subDays($settings8['filter_days'])->format('Y-m-d')
+                    );
                 } elseif (isset($settings8['filter_period'])) {
                     switch ($settings8['filter_period']) {
-                        case 'week': $start = date('Y-m-d', strtotime('last Monday'));
-                        break;
-                        case 'month': $start = date('Y-m') . '-01';
-                        break;
-                        case 'year': $start = date('Y') . '-01-01';
-                        break;
+                        case 'week':
+                            $start = date('Y-m-d', strtotime('last Monday'));
+                            break;
+                        case 'month':
+                            $start = date('Y-m') . '-01';
+                            break;
+                        case 'year':
+                            $start = date('Y') . '-01-01';
+                            break;
                     }
                     if (isset($start)) {
                         return $query->where($settings8['filter_field'], '>=', $start);
@@ -323,7 +374,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full',
             'entries_number'        => '5',
             'fields'                => [
@@ -347,7 +398,7 @@ class HomeController
                 ->get();
         }
 
-        if (! array_key_exists('fields', $settings9)) {
+        if (!array_key_exists('fields', $settings9)) {
             $settings9['fields'] = [];
         }
 
@@ -360,7 +411,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full',
             'entries_number'        => '5',
             'fields'                => [
@@ -383,7 +434,7 @@ class HomeController
                 ->get();
         }
 
-        if (! array_key_exists('fields', $settings10)) {
+        if (!array_key_exists('fields', $settings10)) {
             $settings10['fields'] = [];
         }
 
@@ -396,7 +447,7 @@ class HomeController
             'group_by_period'       => 'day',
             'aggregate_function'    => 'count',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full',
             'entries_number'        => '5',
             'fields'                => [
@@ -417,7 +468,7 @@ class HomeController
                 ->get();
         }
 
-        if (! array_key_exists('fields', $settings11)) {
+        if (!array_key_exists('fields', $settings11)) {
             $settings11['fields'] = [];
         }
 
@@ -431,7 +482,7 @@ class HomeController
             'aggregate_function'    => 'sum',
             'aggregate_field'       => 'amount',
             'filter_field'          => 'created_at',
-            'group_by_field_format' => 'd-m-Y',
+            'group_by_field_format' => 'Y-m-d',
             'column_class'          => 'w-full',
             'entries_number'        => '5',
             'translation_key'       => 'manageSaleRecord',
@@ -439,8 +490,28 @@ class HomeController
 
         $chart12 = new LaravelChart($settings12);
 
-        $blockCount = \App\Models\GeneralStockRecord::count();
+        $final_stock = array();
 
-        return view('admin.home', compact('chart12', 'settings1', 'settings10', 'settings11', 'settings2', 'settings3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'settings9', 'blockCount'));
+        $shelters = Shelter::all(['id', 'name']);
+
+        foreach ($shelters as $shelter) {
+            // $new_shelter = (object)[];
+            // $stock_count = GeneralStockRecord::where('shelter_id', $shelter->id)->count();
+            // $new_shelter->count = $stock_count;
+            // $new_shelter->shelter = $shelter;
+            // array_push($final_stock, $new_shelter);
+            $new_shelter = [];
+            $stock_count = GeneralStockRecord::where('shelter_id', $shelter->id)->count();
+            $new_shelter['count'] = $stock_count;
+            $new_shelter['shelter'] = $shelter;
+            array_push($final_stock, $new_shelter);
+        }
+        // $stock_with_shelter = json_encode($final_stock);
+        $stock_with_shelter = $final_stock;
+        // dd($stock_with_shelter );
+
+
+
+        return view('admin.home', compact('chart12', 'settings1', 'settings10', 'settings11', 'settings2', 'settings3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'settings9', 'stock_with_shelter'));
     }
 }

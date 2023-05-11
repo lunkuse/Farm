@@ -1,6 +1,76 @@
 @extends('layouts.admin')
 @section('content')
+
+
 <div class="flex flex-wrap">
+
+
+
+
+<?php 
+
+// dd($stock_with_shelter);
+?>
+
+
+<table class="table table-index w-full">
+                <thead>
+                    <tr>
+                        <th class="w-9">
+                        </th>
+                        
+                        <th>
+                         Branch
+                        </th>
+                        <th>
+                         Total
+                        </th>
+                        
+                    
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+              
+                
+                        <tr>
+                           
+                            <td>
+                              
+                            </td>
+                            <td>
+                             
+                            </td>
+                          
+                          
+                          
+                        
+                        </tr>
+                        
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {{-- Number block --}}
     <div class="{{ $settings1['column_class'] }} px-4">
         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 shadow-lg">
@@ -240,7 +310,7 @@
             </div>
         </div>
     </div>
-ppppppp{{$blockCount}}
+
     {{-- Latest Entries --}}
     <div class="{{ $settings10['column_class'] }} px-4">
         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 shadow-lg">
