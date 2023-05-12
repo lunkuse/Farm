@@ -8,11 +8,15 @@
 
 
 <?php 
-
-// dd($stock_with_shelter);
+// $stockCountww=json_decode($stockCount, true);
+// dd($stockCountww);
 ?>
 
 
+
+@foreach($stockCount as $link)
+{{ $link->name }} {{ $link->total }}
+@endforeach
 <table class="table table-index w-full">
                 <thead>
                     <tr>
