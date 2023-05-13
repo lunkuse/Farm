@@ -20,7 +20,7 @@
             {{ trans('cruds.manageHealthRecord.fields.tag_no_helper') }}
         </div>
     </div>
-    <div class="form-group {{ $errors->has('clinical_history') ? 'invalid' : '' }}">
+    <!-- <div class="form-group {{ $errors->has('clinical_history') ? 'invalid' : '' }}">
         <label class="form-label" for="clinical_history">{{ trans('cruds.manageHealthRecord.fields.clinical_history') }}</label>
         <x-select-list class="form-control" id="clinical_history" name="clinical_history" wire:model="clinical_history" :options="$this->listsForFields['clinical_history']" multiple />
         <div class="validation-message">
@@ -29,8 +29,8 @@
         <div class="help-block">
             {{ trans('cruds.manageHealthRecord.fields.clinical_history_helper') }}
         </div>
-    </div>
-    <div class="form-group {{ $errors->has('manageHealthRecord.other_clinical_history') ? 'invalid' : '' }}">
+    </div> -->
+    <!-- <div class="form-group {{ $errors->has('manageHealthRecord.other_clinical_history') ? 'invalid' : '' }}">
         <label class="form-label" for="other_clinical_history">{{ trans('cruds.manageHealthRecord.fields.other_clinical_history') }}</label>
         <input class="form-control" type="text" name="other_clinical_history" id="other_clinical_history" wire:model.defer="manageHealthRecord.other_clinical_history">
         <div class="validation-message">
@@ -39,7 +39,7 @@
         <div class="help-block">
             {{ trans('cruds.manageHealthRecord.fields.other_clinical_history_helper') }}
         </div>
-    </div>
+    </div> -->
     <div class="form-group {{ $errors->has('current_diagnosis') ? 'invalid' : '' }}">
         <label class="form-label" for="current_diagnosis">{{ trans('cruds.manageHealthRecord.fields.current_diagnosis') }}</label>
         <x-select-list class="form-control" id="current_diagnosis" name="current_diagnosis" wire:model="current_diagnosis" :options="$this->listsForFields['current_diagnosis']" multiple />

@@ -211,7 +211,7 @@
                             {{ trans('cruds.healthRecord.title') }}
                         </a>
                         <ul class="ml-4 subnav hidden">
-                            @can('clinical_history_access')
+                            <!-- @can('clinical_history_access')
                                 <li class="items-center">
                                     <a class="{{ request()->is("admin/clinical-histories*") ? "sidebar-nav-active activeClass" : "sidebar-nav" }}" href="{{ route("admin.clinical-histories.index") }}">
                                         <i class="fa-fw c-sidebar-nav-icon fas fa-notes-medical">
@@ -219,7 +219,7 @@
                                         {{ trans('cruds.clinicalHistory.title') }}
                                     </a>
                                 </li>
-                            @endcan
+                            @endcan -->
                             @can('current_diagnosi_access')
                                 <li class="items-center">
                                     <a class="{{ request()->is("admin/current-diagnosis*") ? "sidebar-nav-active activeClass" : "sidebar-nav" }}" href="{{ route("admin.current-diagnosis.index") }}">

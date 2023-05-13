@@ -6,6 +6,7 @@ use App\Models\Shelter;
 use App\Models\GeneralStockRecord;
 
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use Illuminate\Support\Facades\DB;
 
 class HomeController
 {
@@ -500,6 +501,8 @@ class HomeController
             $new_shelter->count = $stock_count;
             $new_shelter->shelter = $shelter;
             array_push($final_stock, $new_shelter);
+
+
             // $new_shelter = [];
             // $stock_count = GeneralStockRecord::where('shelter_id', $shelter->id)->count();
             // $new_shelter['count'] = $stock_count;
@@ -510,8 +513,10 @@ class HomeController
         // $stock_with_shelter = $final_stock;
         // dd($stock_with_shelter );
 
+// SELECT s.name, count(*) as total FROM `shelters` s JOIN general_stock_records r ON S.id = R.shelter_id GROUP BY s.name;
+$stockCount = DB::select("SELECT s.name, count(*) as total FROM `shelters` s JOIN general_stock_records r ON s.id = r.shelter_id GROUP BY s.name");
 
 
-        return view('admin.home', compact('chart12', 'settings1', 'settings10', 'settings11', 'settings2', 'settings3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'settings9', 'stock_with_shelter'));
+        return view('admin.home', compact('chart12', 'settings1', 'settings10', 'settings11', 'settings2', 'settings3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'settings9', 'stock_with_shelter', 'stockCount'));
     }
 }

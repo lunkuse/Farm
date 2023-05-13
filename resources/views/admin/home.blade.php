@@ -7,50 +7,38 @@
 
 
 
-<?php 
+<div class="relative w-full pr-4 max-w-full flex-grow flex-1 px-4 ">
+                        <h5 class="text-blueGray-400 uppercase font-bold text-xs m-4 ">
+                        Stock Count on {{ date('d-m-Y H:i:s') }}
+                        </h5>
+                    </div>
+                    <div class="flex flex-wrap w-full mt-4">
+                    @foreach($stockCount as $stockcount)
 
-// dd($stock_with_shelter);
-?>
-
-{{$stock_with_shelter}}
-<table class="table table-index w-full">
-                <thead>
-                    <tr>
-                        <th class="w-9">
-                        </th>
-                        
-                        <th>
-                         Shelter
-                        </th>
-                        <th>
-                         Total
-                        </th>
-                        
-                    
-                        <th>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-              
-                
-                        <tr>
-                           
-                            <td>
-                              
-                            </td>
-                            <td>
-                             
-                            </td>
-                          
-                          
-                          
-                        
-                        </tr>
-                        
-                </tbody>
-            </table>
+{{-- Number block --}}
+    <div class="{{ $settings1['column_class'] }} px-4">
+        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 shadow-lg">
+            <div class="flex-auto p-4">
+                <div class="flex flex-wrap">
+                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                        <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                        {{ $stockcount->name }}
+                        </h5>
+                        <span class="font-semibold text-xl text-blueGray-700">
+                        {{ $stockcount->total }}
+                        </span>
+                    </div>
+                    <div class="relative w-auto pl-4 flex-initial">
+                        <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-lightBlue-500">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 
 
 
@@ -64,13 +52,12 @@
 
 
 
-
-
-
-
-
-
-
+<div class="relative w-full pr-4 max-w-full flex-grow flex-1 px-4 ">
+                        <h5 class="text-blueGray-400 uppercase font-bold text-xs m-4 ">
+                          Other Statistics
+                        </h5>
+                    </div>
+                    <div class="flex flex-wrap w-full mt-4">
     {{-- Number block --}}
     <div class="{{ $settings1['column_class'] }} px-4">
         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 shadow-lg">
@@ -310,7 +297,7 @@
             </div>
         </div>
     </div>
-
+</div>
     {{-- Latest Entries --}}
     <div class="{{ $settings10['column_class'] }} px-4">
         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 shadow-lg">

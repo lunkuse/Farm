@@ -56,13 +56,13 @@
                             {{ trans('cruds.generalStockRecord.fields.dob') }}
                             @include('components.table.sort', ['field' => 'tag_no.dob'])
                         </th>
-                        <th>
-                            {{ trans('cruds.manageHealthRecord.fields.clinical_history') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.manageHealthRecord.fields.other_clinical_history') }}
-                            @include('components.table.sort', ['field' => 'other_clinical_history'])
-                        </th>
+                        <!--<th>-->
+                        <!--    {{ trans('cruds.manageHealthRecord.fields.clinical_history') }}-->
+                        <!--</th>-->
+                        <!--<th>-->
+                        <!--    {{ trans('cruds.manageHealthRecord.fields.other_clinical_history') }}-->
+                        <!--    @include('components.table.sort', ['field' => 'other_clinical_history'])-->
+                        <!--</th>-->
                         <th>
                             {{ trans('cruds.manageHealthRecord.fields.current_diagnosis') }}
                         </th>
@@ -115,14 +115,14 @@
                                     {{ $manageHealthRecord->tagNo->dob ?? '' }}
                                 @endif
                             </td>
-                            <td>
-                                @foreach($manageHealthRecord->clinicalHistory as $key => $entry)
-                                    <span class="badge badge-relationship">{{ $entry->name }}</span>
-                                @endforeach
-                            </td>
-                            <td>
-                                {{ $manageHealthRecord->other_clinical_history }}
-                            </td>
+                            <!--<td>-->
+                            <!--    @foreach($manageHealthRecord->clinicalHistory as $key => $entry)-->
+                            <!--        <span class="badge badge-relationship">{{ $entry->name }}</span>-->
+                            <!--    @endforeach-->
+                            <!--</td>-->
+                            <!--<td>-->
+                            <!--    {{ $manageHealthRecord->other_clinical_history }}-->
+                            <!--</td>-->
                             <td>
                                 @foreach($manageHealthRecord->currentDiagnosis as $key => $entry)
                                     <span class="badge badge-relationship">{{ $entry->name }}</span>
